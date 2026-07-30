@@ -63,7 +63,7 @@ Gmail을 조회해 지원 관련 메일을 LLM으로 분류·정리하고, 관�
 │   └── shared/               # 공용 타입, Zod 스키마, 유틸
 ├── .github/workflows/
 │   ├── sync-gmail.yml        # cron: 하루 3회
-│   └── scrape-jobs.yml       # cron: 하루 1회
+│   └── scrape-jobs.yml       # cron: 3일 1회
 ├── turbo.json
 └── pnpm-workspace.yaml
 ```

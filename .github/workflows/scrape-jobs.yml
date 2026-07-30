@@ -2,8 +2,9 @@ name: scrape-jobs
 
 on:
   schedule:
-    # UTC 일 21:00 = KST 월 06:00 — 주 1회(매주 월요일 아침) 공고 갱신
-    - cron: "0 21 * * 0"
+    # UTC 21:00 = KST 다음날 06:00 — 3일마다(매월 1·4·7…31일 UTC) 아침 공고 갱신.
+    # */3은 월이 바뀌면 카운터가 리셋되므로 31일 → 1일만 1일 간격이 된다 (cron으로는 정확한 72시간 간격을 표현할 수 없다).
+    - cron: "0 21 */3 * *"
   workflow_dispatch:
 
 concurrency:

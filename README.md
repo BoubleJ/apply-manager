@@ -4,7 +4,7 @@
 
 - **웹 대시보드** — 지원현황(`/`)과 채용공고(`/jobs`)를 보여주는 Next.js 앱. Vercel 배포
 - **메일 수집 워커** — Gmail을 증분 조회해 지원 관련 메일을 LLM으로 분류하고 이벤트 로그로 적재. GitHub Actions cron (하루 3회)
-- **공고 스크래퍼 워커** — 관심 기업의 ATS/채용페이지에서 개발 직군 공고를 수집. GitHub Actions cron (하루 1회)
+- **공고 스크래퍼 워커** — 관심 기업의 ATS/채용페이지에서 개발 직군 공고를 수집. GitHub Actions cron (3일 1회)
 
 상시 서버는 없다. 워커는 Actions 러너에서 `tsx`로 실행되고, 상태는 전부 Supabase(Postgres)에 있다.
 상세 요구사항은 [docs/spec.md](docs/spec.md)가 유일한 소스다.
@@ -15,7 +15,7 @@
 flowchart LR
   subgraph actions["GitHub Actions (cron)"]
     SG["sync-gmail.ts<br/>하루 3회"]
-    SJ["scrape-jobs.ts<br/>하루 1회"]
+    SJ["scrape-jobs.ts<br/>3일 1회"]
   end
 
   subgraph external["외부 서비스"]
@@ -53,7 +53,7 @@ packages/
 .github/workflows/
   ci.yml           # push/PR: typecheck → test → web build
   sync-gmail.yml   # cron 하루 3회 (KST 09/15/21시)
-  scrape-jobs.yml  # cron 하루 1회 (KST 06시)
+  scrape-jobs.yml  # cron 3일 1회 (KST 06시)
 ```
 
 ## 로컬 셋업
@@ -143,7 +143,7 @@ Settings → Secrets and variables → Actions에 등록:
 | `LLM_MODEL_FILTER` | X | 미설정 시 `openai/gpt-oss-20b` |
 | `LLM_MODEL_EXTRACT` | X | 미설정 시 `openai/gpt-oss-120b` |
 
-스케줄은 워크플로 파일의 cron(UTC)에 있다: sync-gmail은 `0 0,6,12 * * *`(KST 09/15/21시), scrape-jobs는 `0 21 * * *`(KST 06시). 두 워크플로 모두 `workflow_dispatch`로 Actions 탭에서 수동 실행할 수 있고, `concurrency`로 중복 실행이 큐잉된다.
+스케줄은 워크플로 파일의 cron(UTC)에 있다: sync-gmail은 `0 0,6,12 * * *`(KST 09/15/21시), scrape-jobs는 `0 21 */3 * *`(3일마다 KST 06시). 두 워크플로 모두 `workflow_dispatch`로 Actions 탭에서 수동 실행할 수 있고, `concurrency`로 중복 실행이 큐잉된다.
 
 ## Vercel 배포 (apps/web)
 
