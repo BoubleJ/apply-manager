@@ -131,6 +131,26 @@ const KEYWORD_RULES: ReadonlyArray<{
   },
 ];
 
+/**
+ * 제목에 박혀 있으면 그 자체로 직무를 가리키는 카테고리 — 아래 MODIFIER_PRONE_CATEGORIES와
+ * 같이 걸렸을 때 이쪽을 택한다.
+ */
+const SPECIFIC_ROLE_CATEGORIES: ReadonlySet<Category> = new Set([
+  'frontend',
+  'backend',
+  'mobile',
+]);
+
+/**
+ * 직무가 아니라 도메인·수식어로 쓰이는 일이 많아 다른 직군 제목에 얹혀 오매칭되는 카테고리.
+ * devops는 'platform engineer'·'infra', data_ai는 /\bai\b/가 주범이다.
+ *
+ * 올리브영 실사례(2026-07-30) "[AI-First Track] Commerce Platform Engineer (Front-End)"는
+ * 'ai'(채용 트랙 이름) + 'platform engineer' + 'front end'로 3중 매칭돼 LLM 폴백으로 넘어갔고,
+ * Groq이 실패해 공고가 저장되지 않았다. 여기서 직무는 분명히 frontend다.
+ */
+const MODIFIER_PRONE_CATEGORIES: ReadonlySet<Category> = new Set(['devops', 'data_ai']);
+
 /** 대소문자·하이픈 정규화: 소문자화 + 하이픈류/슬래시 → 공백 ("Front-End" → "front end") */
 export function normalizeTitle(title: string): string {
   return title
@@ -143,6 +163,8 @@ export function normalizeTitle(title: string): string {
 /**
  * 키워드 규칙 1차 분류 (순수 함수).
  * - 풀스택 키워드가 있으면 fullstack 우선 (복수 매칭 우선순위 규칙)
+ * - frontend/backend/mobile이 devops·data_ai와 함께 걸리면 그쪽 우선
+ *   (수식어성 오매칭 — SPECIFIC_ROLE_CATEGORIES 주석 참고)
  * - 정확히 하나의 카테고리에만 걸리면 그 카테고리
  * - 무매칭 또는 복수 카테고리 매칭(애매) → null (LLM 폴백으로 — 보수적 설계)
  */
@@ -156,6 +178,13 @@ export function classifyByKeywords(title: string): Category | null {
     if (hit) matched.add(rule.category);
   }
   if (matched.has('fullstack')) return 'fullstack';
+  // 구체적 직군 하나 + 수식어성 카테고리들만 걸렸으면 구체적인 쪽. 구체적 직군이 둘 이상이거나
+  // (예: 'Frontend/Backend Engineer') qa·game이 섞였으면 판단을 미룬다 (LLM 폴백).
+  const specific = [...matched].filter((category) => SPECIFIC_ROLE_CATEGORIES.has(category));
+  const rest = [...matched].filter((category) => !SPECIFIC_ROLE_CATEGORIES.has(category));
+  if (specific.length === 1 && rest.every((category) => MODIFIER_PRONE_CATEGORIES.has(category))) {
+    return specific[0] ?? null;
+  }
   if (matched.size === 1) {
     const [only] = matched;
     return only ?? null;

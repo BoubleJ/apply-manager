@@ -83,9 +83,26 @@ describe('classifyByKeywords', () => {
     expect(classifyByKeywords('재무 회계 담당자')).toBeNull();
   });
 
+  it('frontend/backend/mobile이 devops·data_ai와 같이 걸리면 그쪽 우선', () => {
+    // 올리브영 실사례: 'ai'(트랙 이름) + 'platform engineer' + 'front end'로 3중 매칭돼 LLM 폴백으로
+    // 넘어갔고, Groq이 실패해 공고가 저장되지 않았다 (2026-07-30). 제목에 Front-End가 박혀 있으면 frontend다.
+    expect(classifyByKeywords('[AI-First Track] Commerce Platform Engineer (Front-End)')).toBe(
+      'frontend',
+    );
+    expect(classifyByKeywords('[AI-First Track] Core Platform Engineer (Back-End)')).toBe(
+      'backend',
+    );
+    expect(classifyByKeywords('모바일 앱 플랫폼 엔지니어')).toBe('mobile');
+    expect(classifyByKeywords('AI Software Engineer-Backend')).toBe('backend');
+  });
+
   it('확신 없으면 null (LLM 폴백) — 복수 카테고리 매칭', () => {
     // 풀스택 키워드 없이 프론트+백 동시 언급 → 애매 → LLM
     expect(classifyByKeywords('Frontend/Backend Engineer')).toBeNull();
+    // devops + data_ai끼리 겹치면 어느 쪽인지 제목만으로 단정할 수 없다 — 우선순위 규칙 대상이 아니다
+    expect(classifyByKeywords('데이터 엔지니어 (인프라 플랫폼)')).toBeNull();
+    // qa가 섞인 경우도 그대로 LLM에 맡긴다
+    expect(classifyByKeywords('백엔드 QA 자동화 엔지니어')).toBeNull();
   });
 });
 
