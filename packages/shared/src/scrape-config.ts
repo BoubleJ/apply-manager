@@ -133,6 +133,13 @@ export const bucketplaceConfigSchema = z.object({
 });
 export type BucketplaceConfig = z.infer<typeof bucketplaceConfigSchema>;
 
+export const millieConfigSchema = z.object({
+  /** 밀리의서재 자체 채용페이지 URL (www.millie.town/careers) — 공고 목록의 유일한 출처 */
+  url: z.url(),
+  policyUrl: policyUrlField,
+});
+export type MillieConfig = z.infer<typeof millieConfigSchema>;
+
 export const llmConfigSchema = z.object({
   /** 자체 채용페이지 URL */
   url: z.url(),
@@ -160,6 +167,8 @@ export type ScrapeConfigData =
   | AblyConfig
   | DunamuConfig
   | DealiciousConfig
+  | BucketplaceConfig
+  | MillieConfig
   | LlmConfig;
 
 export const scrapeConfigSchema = z.discriminatedUnion('strategy', [
@@ -180,6 +189,7 @@ export const scrapeConfigSchema = z.discriminatedUnion('strategy', [
   dunamuConfigSchema.extend({ strategy: z.literal('dunamu') }),
   dealiciousConfigSchema.extend({ strategy: z.literal('dealicious') }),
   bucketplaceConfigSchema.extend({ strategy: z.literal('bucketplace') }),
+  millieConfigSchema.extend({ strategy: z.literal('millie') }),
   llmConfigSchema.extend({ strategy: z.literal('llm') }),
 ]);
 export type ScrapeConfig = z.infer<typeof scrapeConfigSchema>;
