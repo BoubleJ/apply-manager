@@ -91,15 +91,12 @@ export default async function JobsPage({
   const registeredCompanies = companyRows.filter(
     (company) => company.careersPageUrl !== null,
   );
-  // 공고 조건 필터가 걸려 있으면 매칭 공고가 있는 회사만, 아니면 (공고 없는 회사 포함) 전부
-  const hasPostingFilter =
-    filterState.categories.length > 0 ||
-    filterState.openOnly ||
-    filterState.unappliedOnly;
+  // 등록된 회사는 공고 조건 필터와 무관하게 전부 노출한다.
+  // 매칭 공고가 0건이어도 헤더(채용페이지 링크·정책 배지)는 그 자체로 볼 값어치가 있어
+  // 회사가 통째로 사라지지 않게 한다 — 공고 자리에는 CompanyGroup이 빈 안내를 띄운다.
   const groupedCompanies = registeredCompanies.filter(
     (company) =>
-      (filterState.companyId === "all" || company.id === filterState.companyId) &&
-      (!hasPostingFilter || (postingsByCompany.get(company.id)?.length ?? 0) > 0),
+      filterState.companyId === "all" || company.id === filterState.companyId,
   );
 
   return (
