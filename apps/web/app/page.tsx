@@ -26,19 +26,21 @@ import {
   stageBadgeVariant,
 } from "@/lib/stages";
 
-// DB를 요청 시점에 조회한다 (DATABASE_URL 없이도 빌드 가능)
+
 export const dynamic = "force-dynamic";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
+interface DashboardPageProps {
+  searchParams: SearchParams;
+}
+
 export default async function DashboardPage({
   searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
-  const sp = await searchParams;
-  const filterKey = parseFilterKey(sp.filter);
-  const selectedId = typeof sp.app === "string" ? sp.app : undefined;
+}: DashboardPageProps) {
+  const params = await searchParams;
+  const filterKey = parseFilterKey(params.filter);
+  const selectedId = typeof params.app === "string" ? params.app : undefined;
 
   const db = getDb();
   const rows = await db.query.applications.findMany({
