@@ -1,0 +1,99 @@
+{
+  "resultType": "SUCCESS",
+  "error": null,
+  "success": [
+    {
+      "title": "AML Manager",
+      "absolute_url": "https://toss.im/career/job-detail?gh_jid=5287825003",
+      "metadata": [
+        {
+          "name": "포지션의 소속 자회사를 선택해 주세요.",
+          "value": "토스증권",
+          "value_type": "single_select"
+        },
+        {
+          "name": "Job Description을 작성해 주세요.(작성 전, 채용 커뮤니케이션 가이드 노션을 꼭 참고해 주세요.)",
+          "value": "# 합류하게 될 팀에 대해 알려드려요\n\n- 토스증권의 AML Manager는 Compliance Division 내 Compliance Team에 속해 있어요.\n- 토스증권 Compliance Team은 토스증권의 혁신적인 상품과 서비스가 만들어지는 과정에서 필요한 내부통제 체계를 구축·운영하고, 법률 리스크 예방을 위한 사전 검토를 진행해요. \n- 팀 동료들은 각자의 전문 분야를 바탕으로 공통의 목표를 위해 서로의 경험을 공유하며 협업하고 있어요.\n\n\n# 합류하면 함께 할 업무예요\n\n- 거래 모니터링과 의심거래보고(STR) 업무를",
+          "value_type": "long_text"
+        },
+        {
+          "name": "커리어페이지 채용공고 클로징 일자 (서류접수 마감일이 정해진 경우)",
+          "value": "",
+          "value_type": "short_text"
+        },
+        {
+          "name": "커리어페이지 메뉴에 \"미노출\" 되어야 하는 Job인가요?",
+          "value": null,
+          "value_type": "yes_no"
+        },
+        {
+          "name": "커리어 페이지 노출 Job Category 값을 선택해주세요",
+          "value": "Backend",
+          "value_type": "single_select"
+        }
+      ]
+    },
+    {
+      "title": "토스페이먼츠 신사업 초기멤버 인재풀 등록",
+      "absolute_url": "https://toss.im/career/job-detail?gh_jid=7820053003",
+      "metadata": [
+        {
+          "name": "포지션의 소속 자회사를 선택해 주세요.",
+          "value": "토스페이먼츠",
+          "value_type": "single_select"
+        },
+        {
+          "name": "Job Description을 작성해 주세요.(작성 전, 채용 커뮤니케이션 가이드 노션을 꼭 참고해 주세요.)",
+          "value": "# 등록 전 반드시 확인해 주세요\n- 진행 과정 및 최종 배치에 따라, 소속 법인이 토스페이먼츠에서 신규 법인으로 변경될 수 있습니다.\n- 신규 법인으로 소속이 변경되더라도 보상 체계 및 복리후생은 토스커뮤니티의 기준과 동일하게 적용됩니다.\n\n\n# 인재풀에 대해 안내해 드려요\n- 본 인재풀은 다음에 해당하는 직군은 모두 등록 가능합니다.\n- Server Developer / Data Engineer / DBA / Systems Engineer\n\n\n# 토스페이먼츠를 소개해드려요\n- 토스페이먼츠는 사업의 어려움과 비효율을 이해하고, 기",
+          "value_type": "long_text"
+        },
+        {
+          "name": "커리어페이지 채용공고 클로징 일자 (서류접수 마감일이 정해진 경우)",
+          "value": "",
+          "value_type": "short_text"
+        },
+        {
+          "name": "커리어페이지 메뉴에 \"미노출\" 되어야 하는 Job인가요?",
+          "value": false,
+          "value_type": "yes_no"
+        },
+        {
+          "name": "커리어 페이지 노출 Job Category 값을 선택해주세요",
+          "value": "Sales",
+          "value_type": "single_select"
+        }
+      ]
+    },
+    {
+      "title": "토스플레이스 하반기 전직군 얼리버드 전형(~8/10)",
+      "absolute_url": "https://toss.im/career/job-detail?gh_jid=7769070003",
+      "metadata": [
+        {
+          "name": "포지션의 소속 자회사를 선택해 주세요.",
+          "value": "토스플레이스",
+          "value_type": "single_select"
+        },
+        {
+          "name": "Job Description을 작성해 주세요.(작성 전, 채용 커뮤니케이션 가이드 노션을 꼭 참고해 주세요.)",
+          "value": "![referral-1]\n(https://static.toss.im/photos/2607EBL.png)\n\n###\n###\n###\n###\n\n# 얼리버드 전형 혜택\n- 2026년 하반기, **가장 빠르게 채용 프로세스를 시작**할 수 있는 얼리버드 전형이에요.\n- **이력서가 없어도 간편하게 등록**할 수 있어요. 제출해 주신 정보로 적합한 포지션을 매칭해드려요.\n- 얼리버드 전형 등록 후 채용 프로세스를 진행할 경우, 하반기 중 **원하는 시기로 입사일을 조정**할 수 있어요.\n- 지금은 매칭된 포지션이 없더라도, 적합한 포지션이 오픈",
+          "value_type": "long_text"
+        },
+        {
+          "name": "커리어페이지 채용공고 클로징 일자 (서류접수 마감일이 정해진 경우)",
+          "value": "2026-08-10",
+          "value_type": "short_text"
+        },
+        {
+          "name": "커리어페이지 메뉴에 \"미노출\" 되어야 하는 Job인가요?",
+          "value": false,
+          "value_type": "yes_no"
+        },
+        {
+          "name": "커리어 페이지 노출 Job Category 값을 선택해주세요",
+          "value": "All",
+          "value_type": "single_select"
+        }
+      ]
+    }
+  ]
+}

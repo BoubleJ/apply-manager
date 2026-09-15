@@ -22,6 +22,9 @@ import { scrapeDunamu } from './adapters/dunamu';
 import { scrapeDealicious } from './adapters/dealicious';
 import { scrapeBucketplace } from './adapters/bucketplace';
 import { scrapeMillie } from './adapters/millie';
+import { scrapeToss } from './adapters/toss';
+import { scrapeGreenlabs } from './adapters/greenlabs';
+import { scrapeRivers } from './adapters/rivers';
 import { scrapeLlm } from './adapters/llm';
 
 /**
@@ -48,6 +51,9 @@ export const adapters = {
   dealicious: scrapeDealicious,
   bucketplace: scrapeBucketplace,
   millie: scrapeMillie,
+  toss: scrapeToss,
+  greenlabs: scrapeGreenlabs,
+  rivers: scrapeRivers,
   llm: scrapeLlm,
 } as const satisfies {
   [S in ScrapeStrategy]: ScrapeAdapter<Extract<ScrapeConfig, { strategy: S }>>;
@@ -95,6 +101,12 @@ export function runAdapter(config: ScrapeConfig): Promise<ScrapeResult[]> {
       return adapters.bucketplace(config);
     case 'millie':
       return adapters.millie(config);
+    case 'toss':
+      return adapters.toss(config);
+    case 'greenlabs':
+      return adapters.greenlabs(config);
+    case 'rivers':
+      return adapters.rivers(config);
     case 'llm':
       return adapters.llm(config);
     default:

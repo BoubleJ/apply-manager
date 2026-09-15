@@ -25,18 +25,37 @@ const ENTITIES: ReadonlyArray<readonly [RegExp, string]> = [
   [/&amp;/g, '&'],
 ];
 
-export function htmlToText(html: string): string {
-  let text = html
-    .replace(/<script[\s\S]*?<\/script\s*>/gi, '')
-    .replace(/<style[\s\S]*?<\/style\s*>/gi, '')
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '- ')
-    .replace(/<\/(p|div|h[1-6]|li|tr|ul|ol|table|section)\s*>/gi, '\n')
-    .replace(/<[^>]+>/g, '');
+/** &#8211; 같은 수치 참조 — 워드프레스는 제목·본문의 문장부호를 전부 이 형태로 내보낸다 */
+const NUMERIC_ENTITY = /&#(\d+);|&#x([0-9a-f]+);/gi;
+
+/**
+ * HTML 엔티티만 푼다 (태그는 건드리지 않음).
+ * 제목처럼 태그가 없는 짧은 문자열에 쓴다 — 본문은 htmlToText가 이 함수를 포함해 처리한다.
+ */
+export function decodeHtmlEntities(html: string): string {
+  let text = html.replace(NUMERIC_ENTITY, (match, dec: string | undefined, hex: string | undefined) => {
+    const code = dec ? Number.parseInt(dec, 10) : Number.parseInt(hex ?? '', 16);
+    return Number.isFinite(code) && code > 0 && code <= 0x10ffff
+      ? String.fromCodePoint(code)
+      : match;
+  });
   for (const [pattern, replacement] of ENTITIES) {
     text = text.replace(pattern, replacement);
   }
+  return text;
+}
+
+export function htmlToText(html: string): string {
+  const text = decodeHtmlEntities(
+    html
+      .replace(/<script[\s\S]*?<\/script\s*>/gi, '')
+      .replace(/<style[\s\S]*?<\/style\s*>/gi, '')
+      .replace(/<!--[\s\S]*?-->/g, '')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<li[^>]*>/gi, '- ')
+      .replace(/<\/(p|div|h[1-6]|li|tr|ul|ol|table|section)\s*>/gi, '\n')
+      .replace(/<[^>]+>/g, ''),
+  );
   return text
     .split('\n')
     .map((line) => line.replace(/\s+/g, ' ').trim())

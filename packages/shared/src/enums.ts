@@ -67,6 +67,12 @@ export const SCRAPE_STRATEGIES = [
   'bucketplace',
   /** 밀리의서재 자체 채용페이지 (www.millie.town/careers — greeting 백엔드지만 목록이 꺼져 있어 숨고와 같은 방식) */
   'millie',
+  /** 토스(+계열사 전체) 채용페이지 (toss.im/career/jobs — CSR이라 페이지가 호출하는 공개 API를 직접 쓴다) */
+  'toss',
+  /** 그린랩스 자체 채용페이지 (greenlabs.co.kr — ATS 없이 워드프레스가 곧 채용 게시판, WP REST로 읽는다) */
+  'greenlabs',
+  /** rivers(사람인 ATS) 채용페이지 (*.career.rivers.co.kr — 목록 블록이 CSR이라 공개 API를 직접 쓴다) */
+  'rivers',
   'llm',
 ] as const;
 export type ScrapeStrategy = (typeof SCRAPE_STRATEGIES)[number];

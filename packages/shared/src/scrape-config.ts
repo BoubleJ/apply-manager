@@ -140,6 +140,26 @@ export const millieConfigSchema = z.object({
 });
 export type MillieConfig = z.infer<typeof millieConfigSchema>;
 
+export const tossConfigSchema = z.object({
+  /** 공고 목록 API가 어댑터에 고정되어 있어 별도 설정이 없다 (careers_url은 사람이 보는 용도) */
+  policyUrl: policyUrlField,
+});
+export type TossConfig = z.infer<typeof tossConfigSchema>;
+
+export const greenlabsConfigSchema = z.object({
+  /** 그린랩스 채용 공고 목록 URL (greenlabs.co.kr/채용정보/채용-공고) — 호스트가 WP REST의 origin이 된다 */
+  url: z.url(),
+  policyUrl: policyUrlField,
+});
+export type GreenlabsConfig = z.infer<typeof greenlabsConfigSchema>;
+
+export const riversConfigSchema = z.object({
+  /** rivers 채용페이지 URL (예: cupist.career.rivers.co.kr) — 호스트로 workspaceNo를 찾고 공고 링크의 origin이 된다 */
+  url: z.url(),
+  policyUrl: policyUrlField,
+});
+export type RiversConfig = z.infer<typeof riversConfigSchema>;
+
 export const llmConfigSchema = z.object({
   /** 자체 채용페이지 URL */
   url: z.url(),
@@ -169,6 +189,9 @@ export type ScrapeConfigData =
   | DealiciousConfig
   | BucketplaceConfig
   | MillieConfig
+  | TossConfig
+  | GreenlabsConfig
+  | RiversConfig
   | LlmConfig;
 
 export const scrapeConfigSchema = z.discriminatedUnion('strategy', [
@@ -190,6 +213,9 @@ export const scrapeConfigSchema = z.discriminatedUnion('strategy', [
   dealiciousConfigSchema.extend({ strategy: z.literal('dealicious') }),
   bucketplaceConfigSchema.extend({ strategy: z.literal('bucketplace') }),
   millieConfigSchema.extend({ strategy: z.literal('millie') }),
+  tossConfigSchema.extend({ strategy: z.literal('toss') }),
+  greenlabsConfigSchema.extend({ strategy: z.literal('greenlabs') }),
+  riversConfigSchema.extend({ strategy: z.literal('rivers') }),
   llmConfigSchema.extend({ strategy: z.literal('llm') }),
 ]);
 export type ScrapeConfig = z.infer<typeof scrapeConfigSchema>;
