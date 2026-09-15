@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { completeStructured, stageSchema, type LlmEnv } from '@job-tracker/shared';
+import { completeStructured, stageSchema, type LlmEnv } from '@apply-manager/shared';
 import type { ParsedMail } from './parse-mail';
 
 /**

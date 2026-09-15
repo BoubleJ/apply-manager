@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm';
-import { companies, createDb, jobPostings } from '@job-tracker/db';
-import { normalizeCompanyName } from '@job-tracker/shared';
+import { companies, createDb, jobPostings } from '@apply-manager/db';
+import { normalizeCompanyName } from '@apply-manager/shared';
 
 /** 임시 진단용: 회사명들의 적재 공고를 출력한다. 사용: tsx scripts/verify-company.ts <회사명...> */
 async function main(): Promise<void> {

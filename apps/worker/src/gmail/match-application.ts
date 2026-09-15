@@ -5,8 +5,8 @@ import {
   jobPostings,
   type Company,
   type Db,
-} from '@job-tracker/db';
-import { normalizeCompanyName, type Stage } from '@job-tracker/shared';
+} from '@apply-manager/db';
+import { normalizeCompanyName, type Stage } from '@apply-manager/shared';
 
 /**
  * matchApplication (스펙 6장): 메일에서 추출한 (회사, 직무, stage)를 지원 건에 매칭한다.

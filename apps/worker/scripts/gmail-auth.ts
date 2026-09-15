@@ -6,7 +6,7 @@ import { google } from 'googleapis';
  * 로컬에서 1회 실행 → 출력된 refresh token을 GitHub Secrets(GMAIL_REFRESH_TOKEN)에 저장.
  *
  * 사용법:
- *   GMAIL_CLIENT_ID=... GMAIL_CLIENT_SECRET=... pnpm --filter @job-tracker/worker gmail-auth
+ *   GMAIL_CLIENT_ID=... GMAIL_CLIENT_SECRET=... pnpm --filter @apply-manager/worker gmail-auth
  *
  * Google Cloud Console에서 OAuth 클라이언트(데스크톱 앱 또는 웹 앱)를 만들고,
  * 웹 앱 타입이면 승인된 리디렉션 URI에 http://localhost:53682/oauth2/callback 을 추가한다.

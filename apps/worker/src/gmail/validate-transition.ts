@@ -1,4 +1,4 @@
-import type { Stage } from '@job-tracker/shared';
+import type { Stage } from '@apply-manager/shared';
 
 /**
  * 상태 전이 검증 (스펙 6장 validateTransition).

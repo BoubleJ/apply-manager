@@ -1,5 +1,5 @@
 import { desc } from "drizzle-orm";
-import { applications } from "@job-tracker/db";
+import { applications } from "@apply-manager/db";
 
 import { ApplicationTable } from "@/components/applications/application-table";
 import { DetailDialog } from "@/components/applications/detail-dialog";

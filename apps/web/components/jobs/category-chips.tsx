@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckIcon } from "lucide-react";
-import type { Category } from "@job-tracker/shared";
+import type { Category } from "@apply-manager/shared";
 
 import { cn } from "@/lib/utils";
 import { CATEGORY_LABELS } from "@/lib/jobs";

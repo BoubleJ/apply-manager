@@ -1,5 +1,5 @@
 {
-  "name": "@job-tracker/db",
+  "name": "@apply-manager/db",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -13,7 +13,7 @@
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
-    "@job-tracker/shared": "workspace:*",
+    "@apply-manager/shared": "workspace:*",
     "drizzle-orm": "0.45.2",
     "postgres": "3.4.9"
   },

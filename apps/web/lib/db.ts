@@ -1,4 +1,4 @@
-import { createDb, type Db } from "@job-tracker/db";
+import { createDb, type Db } from "@apply-manager/db";
 
 /**
  * RSC/Server Action 공용 lazy Drizzle 클라이언트.

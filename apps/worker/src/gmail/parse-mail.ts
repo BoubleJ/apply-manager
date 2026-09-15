@@ -1,5 +1,5 @@
 import type { gmail_v1 } from 'googleapis';
-import { preprocessHtml } from '@job-tracker/shared';
+import { preprocessHtml } from '@apply-manager/shared';
 
 /**
  * parseMailContent (스펙 6장): Gmail 메시지에서 제목/발신자/본문/수신시각 추출.

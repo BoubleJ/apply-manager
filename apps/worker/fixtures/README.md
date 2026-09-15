@@ -39,11 +39,11 @@
 
 ```sh
 # apps/worker 디렉토리 기준, LLM_* env 필요 (.env 또는 shell export)
-pnpm --filter @job-tracker/worker eval-classify
+pnpm --filter @apply-manager/worker eval-classify
 ```
 
 모델을 바꿔 비교하려면 env만 바꿔 재실행한다:
 
 ```sh
-LLM_MODEL_EXTRACT=other/model pnpm --filter @job-tracker/worker eval-classify
+LLM_MODEL_EXTRACT=other/model pnpm --filter @apply-manager/worker eval-classify
 ```

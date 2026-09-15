@@ -3,8 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
-import { jobPostings } from "@job-tracker/db";
-import { preprocessHtml } from "@job-tracker/shared";
+import { jobPostings } from "@apply-manager/db";
+import { preprocessHtml } from "@apply-manager/shared";
 
 import { getDb } from "@/lib/db";
 
@@ -25,7 +25,7 @@ async function fetchPostingContent(
     const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
     const res = await fetch(url, {
       signal: controller.signal,
-      headers: { "user-agent": "Mozilla/5.0 (job-tracker archive)" },
+      headers: { "user-agent": "Mozilla/5.0 (apply-manager archive)" },
     });
     clearTimeout(timer);
     if (!res.ok) throw new Error(`status ${res.status}`);

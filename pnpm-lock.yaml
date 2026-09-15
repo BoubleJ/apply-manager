@@ -29,13 +29,13 @@ importers:
 
   apps/web:
     dependencies:
-      '@job-tracker/db':
+      '@apply-manager/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@job-tracker/scraper':
+      '@apply-manager/scraper':
         specifier: workspace:*
         version: link:../../packages/scraper
-      '@job-tracker/shared':
+      '@apply-manager/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       '@radix-ui/react-dialog':
@@ -114,13 +114,13 @@ importers:
 
   apps/worker:
     dependencies:
-      '@job-tracker/db':
+      '@apply-manager/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@job-tracker/scraper':
+      '@apply-manager/scraper':
         specifier: workspace:*
         version: link:../../packages/scraper
-      '@job-tracker/shared':
+      '@apply-manager/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       drizzle-orm:
@@ -148,7 +148,7 @@ importers:
 
   packages/db:
     dependencies:
-      '@job-tracker/shared':
+      '@apply-manager/shared':
         specifier: workspace:*
         version: link:../shared
       drizzle-orm:
@@ -173,7 +173,7 @@ importers:
 
   packages/scraper:
     dependencies:
-      '@job-tracker/shared':
+      '@apply-manager/shared':
         specifier: workspace:*
         version: link:../shared
       playwright:

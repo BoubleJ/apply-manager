@@ -31,10 +31,10 @@ jobs:
 
       # llm 전략의 needsBrowser(CSR 페이지) 회사용 — 없으면 해당 회사 스크래핑이 통째로 실패한다 (실측: 플렉스팀)
       - name: Install Playwright chromium
-        run: pnpm --filter @job-tracker/scraper exec playwright install --with-deps chromium
+        run: pnpm --filter @apply-manager/scraper exec playwright install --with-deps chromium
 
       - name: Run job scraper worker
-        run: pnpm --filter @job-tracker/worker scrape-jobs
+        run: pnpm --filter @apply-manager/worker scrape-jobs
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}

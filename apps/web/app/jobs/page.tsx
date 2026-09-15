@@ -1,5 +1,5 @@
 import { asc, desc } from "drizzle-orm";
-import { companies, jobPostings, type JobPosting } from "@job-tracker/db";
+import { companies, jobPostings, type JobPosting } from "@apply-manager/db";
 
 import { CompanyGroup } from "@/components/jobs/company-group";
 import { JobCard } from "@/components/jobs/job-card";

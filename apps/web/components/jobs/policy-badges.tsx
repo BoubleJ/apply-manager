@@ -1,4 +1,4 @@
-import type { ApplyPolicy } from "@job-tracker/shared";
+import type { ApplyPolicy } from "@apply-manager/shared";
 
 import { Badge } from "@/components/ui/badge";
 import {

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { GreetingConfig } from '@job-tracker/shared';
+import type { GreetingConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchJson, fetchText } from '../fetch';
 import { extractNextData, toIsoDate } from '../next-data';

@@ -1,5 +1,5 @@
 {
-  "name": "@job-tracker/worker",
+  "name": "@apply-manager/worker",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -15,9 +15,9 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@job-tracker/db": "workspace:*",
-    "@job-tracker/scraper": "workspace:*",
-    "@job-tracker/shared": "workspace:*",
+    "@apply-manager/db": "workspace:*",
+    "@apply-manager/scraper": "workspace:*",
+    "@apply-manager/shared": "workspace:*",
     "drizzle-orm": "0.45.2",
     "googleapis": "173.0.0",
     "zod": "4.4.3"

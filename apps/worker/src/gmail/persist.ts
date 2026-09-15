@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm';
-import { applicationEvents, applications, type Db } from '@job-tracker/db';
-import type { Stage } from '@job-tracker/shared';
+import { applicationEvents, applications, type Db } from '@apply-manager/db';
+import type { Stage } from '@apply-manager/shared';
 
 /**
  * persistEvent (스펙 6장): 이벤트 적재 + applications.current_stage 캐시 갱신.

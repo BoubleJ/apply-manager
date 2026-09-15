@@ -1,5 +1,5 @@
 {
-  "name": "job-tracker",
+  "name": "apply-manager",
   "private": true,
   "packageManager": "pnpm@10.11.0",
   "scripts": {

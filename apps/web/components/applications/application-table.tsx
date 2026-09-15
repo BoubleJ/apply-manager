@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Application, ApplicationEvent, Company } from "@job-tracker/db";
+import type { Application, ApplicationEvent, Company } from "@apply-manager/db";
 
 import { Badge } from "@/components/ui/badge";
 import {

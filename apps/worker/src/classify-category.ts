@@ -4,7 +4,7 @@ import {
   LlmRateLimitError,
   completeStructured,
   type Category,
-} from '@job-tracker/shared';
+} from '@apply-manager/shared';
 
 /**
  * 직군 분류기 (스펙 7-7): 개발 직군만 수집하기 위한 2단 하이브리드.

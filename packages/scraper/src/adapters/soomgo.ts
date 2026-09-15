@@ -1,4 +1,4 @@
-import type { SoomgoConfig } from '@job-tracker/shared';
+import type { SoomgoConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { parseGreetingOpeningDetail } from './greeting';

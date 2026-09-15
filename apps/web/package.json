@@ -1,5 +1,5 @@
 {
-  "name": "@job-tracker/web",
+  "name": "@apply-manager/web",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,9 +11,9 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@job-tracker/db": "workspace:*",
-    "@job-tracker/scraper": "workspace:*",
-    "@job-tracker/shared": "workspace:*",
+    "@apply-manager/db": "workspace:*",
+    "@apply-manager/scraper": "workspace:*",
+    "@apply-manager/shared": "workspace:*",
     "@radix-ui/react-dialog": "1.1.14",
     "@radix-ui/react-label": "2.1.7",
     "@radix-ui/react-select": "2.2.5",

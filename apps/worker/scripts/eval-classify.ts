@@ -2,7 +2,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
-import { loadLlmEnv, stageSchema } from '@job-tracker/shared';
+import { loadLlmEnv, stageSchema } from '@apply-manager/shared';
 import { classifyMail } from '../src/gmail/classify';
 import type { ParsedMail } from '../src/gmail/parse-mail';
 

@@ -84,8 +84,8 @@ pnpm install
 4. 스키마 반영 (`packages/db/.env`의 `DATABASE_URL`을 자동으로 읽는다):
 
    ```bash
-   pnpm --filter @job-tracker/db db:push
-   # 또는 SQL 마이그레이션 파일 생성: pnpm --filter @job-tracker/db db:generate
+   pnpm --filter @apply-manager/db db:push
+   # 또는 SQL 마이그레이션 파일 생성: pnpm --filter @apply-manager/db db:generate
    ```
 
 ### 3. Gmail OAuth (refresh token 발급)
@@ -98,7 +98,7 @@ pnpm install
 
    ```bash
    # apps/worker/.env에 GMAIL_CLIENT_ID/SECRET을 채운 뒤
-   pnpm --filter @job-tracker/worker gmail-auth
+   pnpm --filter @apply-manager/worker gmail-auth
    ```
 
 4. 출력된 refresh token을 `apps/worker/.env`의 `GMAIL_REFRESH_TOKEN`과 GitHub Secrets에 저장한다.
@@ -121,9 +121,9 @@ pnpm install
 ### 5. 실행
 
 ```bash
-pnpm --filter @job-tracker/web dev          # 대시보드 http://localhost:3000
-pnpm --filter @job-tracker/worker sync-gmail   # 메일 수집 1회 실행
-pnpm --filter @job-tracker/worker scrape-jobs  # 공고 스크래핑 1회 실행
+pnpm --filter @apply-manager/web dev          # 대시보드 http://localhost:3000
+pnpm --filter @apply-manager/worker sync-gmail   # 메일 수집 1회 실행
+pnpm --filter @apply-manager/worker scrape-jobs  # 공고 스크래핑 1회 실행
 pnpm typecheck && pnpm test                 # 전체 검증 (turbo)
 ```
 
@@ -148,7 +148,7 @@ Settings → Secrets and variables → Actions에 등록:
 ## Vercel 배포 (apps/web)
 
 1. Vercel에서 레포 import
-2. **Root Directory를 `apps/web`으로 설정** — pnpm workspace 모노레포는 Vercel이 자동 감지하며, 루트의 lockfile로 워크스페이스 의존성(`@job-tracker/db`, `@job-tracker/shared`)까지 설치한다. Framework Preset은 Next.js(자동 감지), install/build 커맨드는 기본값 그대로
+2. **Root Directory를 `apps/web`으로 설정** — pnpm workspace 모노레포는 Vercel이 자동 감지하며, 루트의 lockfile로 워크스페이스 의존성(`@apply-manager/db`, `@apply-manager/shared`)까지 설치한다. Framework Preset은 Next.js(자동 감지), install/build 커맨드는 기본값 그대로
 3. Environment Variables에 `DATABASE_URL` 등록 (basic auth를 쓰면 `BASIC_AUTH_USER`, `BASIC_AUTH_PASSWORD`도)
 
 ### 접근 보호 (basic auth 미들웨어)
@@ -171,7 +171,7 @@ export function middleware(request: NextRequest) {
   }
   return new NextResponse("Authentication required", {
     status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="job-tracker"' },
+    headers: { "WWW-Authenticate": 'Basic realm="apply-manager"' },
   });
 }
 
@@ -192,8 +192,8 @@ export const config = {
 - 모델 간 비교는 코드 수정 없이 env만 바꿔 재실행하면 된다:
 
   ```bash
-  LLM_MODEL_EXTRACT=openai/gpt-oss-120b pnpm --filter @job-tracker/worker eval
-  LLM_MODEL_EXTRACT=other-vendor/model  LLM_BASE_URL=https://... pnpm --filter @job-tracker/worker eval
+  LLM_MODEL_EXTRACT=openai/gpt-oss-120b pnpm --filter @apply-manager/worker eval
+  LLM_MODEL_EXTRACT=other-vendor/model  LLM_BASE_URL=https://... pnpm --filter @apply-manager/worker eval
   ```
 
   (평가 스크립트 이름은 worker 패키지의 `package.json` scripts를 기준으로 한다)

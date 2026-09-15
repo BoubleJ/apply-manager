@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { NaverConfig } from '@job-tracker/shared';
+import type { NaverConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchJson, fetchText } from '../fetch';
 import { htmlToText } from '../html';

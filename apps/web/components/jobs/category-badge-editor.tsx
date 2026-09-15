@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { CATEGORIES, type Category } from "@job-tracker/shared";
+import { CATEGORIES, type Category } from "@apply-manager/shared";
 
 import { Badge } from "@/components/ui/badge";
 import { updateJobCategoryAction } from "@/lib/actions/jobs";

@@ -30,7 +30,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run Gmail sync worker
-        run: pnpm --filter @job-tracker/worker sync-gmail
+        run: pnpm --filter @apply-manager/worker sync-gmail
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}

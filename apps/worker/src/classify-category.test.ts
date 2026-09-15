@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LlmRateLimitError } from '@job-tracker/shared';
+import { LlmRateLimitError } from '@apply-manager/shared';
 import {
   EXCLUDED_CATEGORIES,
   classifyByKeywords,

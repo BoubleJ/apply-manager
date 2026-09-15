@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { KakaobankConfig } from '@job-tracker/shared';
+import type { KakaobankConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchJson, postJson } from '../fetch';
 import { htmlToText } from '../html';

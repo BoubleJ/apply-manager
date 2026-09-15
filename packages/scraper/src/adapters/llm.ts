@@ -6,7 +6,7 @@ import {
   type HtmlLink,
   type LlmConfig,
   type PreprocessedHtml,
-} from '@job-tracker/shared';
+} from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { renderWithBrowser } from '../browser';

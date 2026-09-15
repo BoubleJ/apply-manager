@@ -1,4 +1,4 @@
-import { assertNever, type Stage } from "@job-tracker/shared";
+import { assertNever, type Stage } from "@apply-manager/shared";
 
 import type { BadgeVariant } from "@/components/ui/badge";
 

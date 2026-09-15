@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { LeverConfig } from '@job-tracker/shared';
+import type { LeverConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchJson } from '../fetch';
 

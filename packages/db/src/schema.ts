@@ -18,9 +18,9 @@ import {
   SCRAPE_STRATEGIES,
   STAGES,
   type ScrapeConfigData,
-} from '@job-tracker/shared';
+} from '@apply-manager/shared';
 
-// enum 값의 단일 소스는 @job-tracker/shared (db → shared 단방향 의존)
+// enum 값의 단일 소스는 @apply-manager/shared (db → shared 단방향 의존)
 export const scrapeStrategyEnum = pgEnum('scrape_strategy', SCRAPE_STRATEGIES);
 export const applyPolicyEnum = pgEnum('apply_policy', APPLY_POLICIES);
 export const stageEnum = pgEnum('stage', STAGES);

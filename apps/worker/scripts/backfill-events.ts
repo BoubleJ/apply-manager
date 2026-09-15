@@ -6,8 +6,8 @@ import {
   createDb,
   processedMessages,
   type Company,
-} from '@job-tracker/db';
-import { normalizeCompanyName } from '@job-tracker/shared';
+} from '@apply-manager/db';
+import { normalizeCompanyName } from '@apply-manager/shared';
 import { BACKFILL, PROCESSED_ONLY } from './backfill-data';
 
 /**
@@ -17,7 +17,7 @@ import { BACKFILL, PROCESSED_ONLY } from './backfill-data';
  * - 이벤트: processed_messages에 이미 있는 gmailMessageId는 건너뛰어 재실행 멱등성 보장
  * - processed_messages: 이벤트 근거 메일 + PROCESSED_ONLY(검증/인증/노이즈) 기록 → 파이프라인 재처리 방지
  *
- * 실행: pnpm --filter @job-tracker/worker backfill-events
+ * 실행: pnpm --filter @apply-manager/worker backfill-events
  */
 /** 지원 건의 모든 이벤트에서 current_stage를 재계산해 갱신하고 반환 */
 async function recomputeCurrentStage(

@@ -1,5 +1,5 @@
-import { STAGES } from "@job-tracker/shared";
-import type { ApplicationEvent } from "@job-tracker/db";
+import { STAGES } from "@apply-manager/shared";
+import type { ApplicationEvent } from "@apply-manager/db";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

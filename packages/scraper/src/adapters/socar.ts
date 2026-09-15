@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { SocarConfig } from '@job-tracker/shared';
+import type { SocarConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { extractNextData } from '../next-data';

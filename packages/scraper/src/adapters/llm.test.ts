@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { preprocessHtml } from '@job-tracker/shared';
+import { preprocessHtml } from '@apply-manager/shared';
 import {
   buildJobExtractionPrompt,
   isProbablyCsr,

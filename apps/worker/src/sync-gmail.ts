@@ -6,8 +6,8 @@ import {
   gmailSyncState,
   processedMessages,
   type Db,
-} from '@job-tracker/db';
-import { loadLlmEnv, type LlmEnv, type Stage } from '@job-tracker/shared';
+} from '@apply-manager/db';
+import { loadLlmEnv, type LlmEnv, type Stage } from '@apply-manager/shared';
 import { createGmailClient, loadGmailEnv } from './gmail/client';
 import { fetchMessageIds } from './gmail/fetch-messages';
 import { parseMailContent, type ParsedMail } from './gmail/parse-mail';

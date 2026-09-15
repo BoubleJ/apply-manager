@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { JobflexConfig } from '@job-tracker/shared';
+import type { JobflexConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 
 /**

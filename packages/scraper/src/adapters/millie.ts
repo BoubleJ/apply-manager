@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { MillieConfig } from '@job-tracker/shared';
+import type { MillieConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { extractNextData } from '../next-data';

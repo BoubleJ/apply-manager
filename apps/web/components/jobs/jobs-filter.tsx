@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { CATEGORIES, type Category } from "@job-tracker/shared";
+import { CATEGORIES, type Category } from "@apply-manager/shared";
 
 import { CategoryChips } from "@/components/jobs/category-chips";
 import {

@@ -34,7 +34,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Prune applications older than retention window
-        run: pnpm --filter @job-tracker/worker prune-old
+        run: pnpm --filter @apply-manager/worker prune-old
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           # 지원일 기준 보존 개월 수 (기본 7)

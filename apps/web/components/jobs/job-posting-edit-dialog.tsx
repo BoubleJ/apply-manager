@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useTransition } from "react";
-import type { JobPostingStatus } from "@job-tracker/shared";
+import type { JobPostingStatus } from "@apply-manager/shared";
 
 import { Button } from "@/components/ui/button";
 import {

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { AblyConfig } from '@job-tracker/shared';
+import type { AblyConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { extractNextData, toIsoDate } from '../next-data';

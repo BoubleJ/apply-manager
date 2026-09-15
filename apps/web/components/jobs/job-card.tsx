@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "lucide-react";
-import type { JobPosting } from "@job-tracker/db";
+import type { JobPosting } from "@apply-manager/db";
 
 import { AddApplicationDialog } from "@/components/jobs/add-application-dialog";
 import { ArchiveButton } from "@/components/jobs/archive-button";

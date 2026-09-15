@@ -4,8 +4,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { desc, eq } from "drizzle-orm";
-import { applicationEvents, applications } from "@job-tracker/db";
-import { stageSchema } from "@job-tracker/shared";
+import { applicationEvents, applications } from "@apply-manager/db";
+import { stageSchema } from "@apply-manager/shared";
 
 import { getDb } from "@/lib/db";
 import { dashboardHref, parseFilterKey } from "@/lib/stages";

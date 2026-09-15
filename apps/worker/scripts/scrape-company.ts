@@ -1,13 +1,13 @@
 import { readFileSync } from 'node:fs';
 import { and, eq, notInArray } from 'drizzle-orm';
-import { companies, createDb, jobPostings, type Company } from '@job-tracker/db';
+import { companies, createDb, jobPostings, type Company } from '@apply-manager/db';
 import {
   categorySchema,
   normalizeCompanyName,
   parseScrapeConfig,
   scrapeStrategySchema,
-} from '@job-tracker/shared';
-import { contentHash } from '@job-tracker/shared/content-hash';
+} from '@apply-manager/shared';
+import { contentHash } from '@apply-manager/shared/content-hash';
 import { z } from 'zod';
 
 /**
@@ -28,7 +28,7 @@ import { z } from 'zod';
  *   ]
  * }
  *
- * 실행: pnpm --filter @job-tracker/worker scrape-company <input.json>
+ * 실행: pnpm --filter @apply-manager/worker scrape-company <input.json>
  */
 const inputSchema = z.object({
   company: z.string().trim().min(1),

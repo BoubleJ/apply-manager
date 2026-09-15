@@ -1,6 +1,6 @@
 import { desc, eq, isNotNull } from "drizzle-orm";
 import { ExternalLinkIcon } from "lucide-react";
-import { companies, jobPostings } from "@job-tracker/db";
+import { companies, jobPostings } from "@apply-manager/db";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

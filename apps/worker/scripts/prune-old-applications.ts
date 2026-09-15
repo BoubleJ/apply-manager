@@ -1,5 +1,5 @@
 import { lt } from 'drizzle-orm';
-import { applications, createDb } from '@job-tracker/db';
+import { applications, createDb } from '@apply-manager/db';
 import { retentionCutoff } from '../src/retention';
 
 /**
@@ -7,7 +7,7 @@ import { retentionCutoff } from '../src/retention';
  * appliedAt < (오늘 - RETENTION_MONTHS개월) 인 지원건을 삭제 → application_events는 FK cascade로 함께 삭제.
  * RETENTION_DRY_RUN=1 이면 삭제하지 않고 대상만 출력한다.
  *
- * 실행: pnpm --filter @job-tracker/worker prune-old
+ * 실행: pnpm --filter @apply-manager/worker prune-old
  */
 const RETENTION_MONTHS = Number(process.env.RETENTION_MONTHS ?? '7');
 const DRY_RUN = process.env.RETENTION_DRY_RUN === '1';

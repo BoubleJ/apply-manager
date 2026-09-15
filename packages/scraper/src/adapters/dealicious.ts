@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { DealiciousConfig } from '@job-tracker/shared';
+import type { DealiciousConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchJson } from '../fetch';
 import { toIsoDate } from '../next-data';

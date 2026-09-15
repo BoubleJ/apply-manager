@@ -3,7 +3,7 @@ import {
   type ApplyPolicy,
   type Category,
   type JobPostingStatus,
-} from "@job-tracker/shared";
+} from "@apply-manager/shared";
 
 import type { BadgeVariant } from "@/components/ui/badge";
 

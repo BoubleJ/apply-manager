@@ -8,7 +8,7 @@ import {
   parseFilterKey,
   stageMatchesFilter,
 } from "./stages";
-import type { Stage } from "@job-tracker/shared";
+import type { Stage } from "@apply-manager/shared";
 
 const app = (currentStage: Stage, stages: Stage[]) => ({
   currentStage,

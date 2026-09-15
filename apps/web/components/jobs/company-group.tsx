@@ -1,4 +1,4 @@
-import type { Application, Company, JobPosting } from "@job-tracker/db";
+import type { Application, Company, JobPosting } from "@apply-manager/db";
 
 import { JobCard } from "@/components/jobs/job-card";
 import { PolicyBadges } from "@/components/jobs/policy-badges";

@@ -1,4 +1,4 @@
-import type { SoopConfig } from '@job-tracker/shared';
+import type { SoopConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { htmlToText } from '../html';

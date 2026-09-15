@@ -1,4 +1,4 @@
-import type { Stage } from '@job-tracker/shared';
+import type { Stage } from '@apply-manager/shared';
 
 /**
  * Claude가 Gmail 커넥터로 직접 조회한 최근 6개월 채용전형 메일을 분류·그룹핑한 백필 데이터.

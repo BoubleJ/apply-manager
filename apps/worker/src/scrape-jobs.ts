@@ -1,8 +1,8 @@
 import { and, eq, notInArray } from 'drizzle-orm';
-import { runAdapter, type ScrapeResult } from '@job-tracker/scraper';
-import { loadLlmEnv, parseScrapeConfig } from '@job-tracker/shared';
-import { contentHash } from '@job-tracker/shared/content-hash';
-import { companies, createDb, jobPostings, type Company, type Db } from '@job-tracker/db';
+import { runAdapter, type ScrapeResult } from '@apply-manager/scraper';
+import { loadLlmEnv, parseScrapeConfig } from '@apply-manager/shared';
+import { contentHash } from '@apply-manager/shared/content-hash';
+import { companies, createDb, jobPostings, type Company, type Db } from '@apply-manager/db';
 import {
   EXCLUDED_CATEGORIES,
   classifyByKeywords,

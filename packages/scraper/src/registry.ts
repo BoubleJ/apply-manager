@@ -2,7 +2,7 @@ import {
   assertNever,
   type ScrapeConfig,
   type ScrapeStrategy,
-} from '@job-tracker/shared';
+} from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from './types';
 import { scrapeGreeting } from './adapters/greeting';
 import { scrapeNinehire } from './adapters/ninehire';

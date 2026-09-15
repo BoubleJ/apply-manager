@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { DunamuConfig } from '@job-tracker/shared';
+import type { DunamuConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchText } from '../fetch';
 import { extractNextData } from '../next-data';

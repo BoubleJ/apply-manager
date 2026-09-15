@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { BucketplaceConfig } from '@job-tracker/shared';
+import type { BucketplaceConfig } from '@apply-manager/shared';
 import type { ScrapeAdapter, ScrapeResult } from '../types';
 import { fetchJson } from '../fetch';
 

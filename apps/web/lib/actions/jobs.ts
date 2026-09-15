@@ -3,8 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
-import { jobPostings } from "@job-tracker/db";
-import { categorySchema, jobPostingStatusSchema } from "@job-tracker/shared";
+import { jobPostings } from "@apply-manager/db";
+import { categorySchema, jobPostingStatusSchema } from "@apply-manager/shared";
 
 import { getDb } from "@/lib/db";
 
